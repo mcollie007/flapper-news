@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_filter :authenticate_user!, only: [:create, :upvote]
 
 	def index
 		respond_with Post.all
@@ -16,7 +17,7 @@ class PostsController < ApplicationController
 		post = Post.find(params[:id])
 		post.increment!(:upvotes)
 
-		respond_with post_params
+		respond_with post
 	end
 
 	private
