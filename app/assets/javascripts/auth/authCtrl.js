@@ -1,5 +1,5 @@
 angular.module('flapperNews')
-.controller('AuthCtrl' ['$scope', '$state', 'Auth', function($scope, $state, Auth){
+.controller('AuthCtrl', ['$scope', '$state', 'Auth', function($scope, $state, Auth){
 
 	$scope.login = function(){
 		Auth.login($scope.user).then(function(){
@@ -12,5 +12,5 @@ angular.module('flapperNews')
 			$state.go('home');
 		});
 	};
-	
+
 }]);
